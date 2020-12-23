@@ -1,0 +1,38 @@
+C:\Users\ASUS\Desktop\ProyekChess\ProyekChess\ProyekChess\bin\Debug\ProyekChess.exe.config
+C:\Users\ASUS\Desktop\ProyekChess\ProyekChess\ProyekChess\bin\Debug\ProyekChess.exe
+C:\Users\ASUS\Desktop\ProyekChess\ProyekChess\ProyekChess\bin\Debug\ProyekChess.pdb
+C:\Users\ASUS\Desktop\ProyekChess\ProyekChess\ProyekChess\obj\Debug\ProyekChess.csprojAssemblyReference.cache
+C:\Users\ASUS\Desktop\ProyekChess\ProyekChess\ProyekChess\obj\Debug\ProyekChess.Form1.resources
+C:\Users\ASUS\Desktop\ProyekChess\ProyekChess\ProyekChess\obj\Debug\ProyekChess.Properties.Resources.resources
+C:\Users\ASUS\Desktop\ProyekChess\ProyekChess\ProyekChess\obj\Debug\ProyekChess.csproj.GenerateResource.cache
+C:\Users\ASUS\Desktop\ProyekChess\ProyekChess\ProyekChess\obj\Debug\ProyekChess.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\Desktop\ProyekChess\ProyekChess\ProyekChess\obj\Debug\ProyekChess.exe
+C:\Users\ASUS\Desktop\ProyekChess\ProyekChess\ProyekChess\obj\Debug\ProyekChess.pdb
+D:\ProyekChess\ProyekChess\bin\Debug\ProyekChess.exe.config
+D:\ProyekChess\ProyekChess\bin\Debug\ProyekChess.exe
+D:\ProyekChess\ProyekChess\bin\Debug\ProyekChess.pdb
+D:\ProyekChess\ProyekChess\obj\Debug\ProyekChess.csprojAssemblyReference.cache
+D:\ProyekChess\ProyekChess\obj\Debug\ProyekChess.Form1.resources
+D:\ProyekChess\ProyekChess\obj\Debug\ProyekChess.Properties.Resources.resources
+D:\ProyekChess\ProyekChess\obj\Debug\ProyekChess.csproj.GenerateResource.cache
+D:\ProyekChess\ProyekChess\obj\Debug\ProyekChess.exe
+D:\ProyekChess\ProyekChess\obj\Debug\ProyekChess.pdb
+C:\Users\ASUS\Desktop\gitlab Ai\project\ProyekChess\obj\Debug\ProyekChess.csprojAssemblyReference.cache
+C:\Users\ASUS\Desktop\gitlab Ai\project\ProyekChess\obj\Debug\ProyekChess.Form1.resources
+C:\Users\ASUS\Desktop\gitlab Ai\project\ProyekChess\obj\Debug\ProyekChess.Properties.Resources.resources
+C:\Users\ASUS\Desktop\gitlab Ai\project\ProyekChess\obj\Debug\ProyekChess.csproj.GenerateResource.cache
+C:\Users\ASUS\Desktop\gitlab Ai\project\ProyekChess\obj\Debug\ProyekChess.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\Desktop\gitlab Ai\project\ProyekChess\obj\Debug\ProyekChess.exe
+C:\Users\ASUS\Desktop\gitlab Ai\project\ProyekChess\obj\Debug\ProyekChess.pdb
+C:\Users\ASUS\Desktop\gitlab Ai\project\ProyekChess\bin\Debug\ProyekChess.exe.config
+C:\Users\ASUS\Desktop\gitlab Ai\project\ProyekChess\bin\Debug\ProyekChess.exe
+C:\Users\ASUS\Desktop\gitlab Ai\project\ProyekChess\bin\Debug\ProyekChess.pdb
+C:\Users\ASUS\Documents\project-main\ProyekChess\bin\Debug\ProyekChess.exe.config
+C:\Users\ASUS\Documents\project-main\ProyekChess\bin\Debug\ProyekChess.exe
+C:\Users\ASUS\Documents\project-main\ProyekChess\bin\Debug\ProyekChess.pdb
+C:\Users\ASUS\Documents\project-main\ProyekChess\obj\Debug\ProyekChess.csprojAssemblyReference.cache
+C:\Users\ASUS\Documents\project-main\ProyekChess\obj\Debug\ProyekChess.Form1.resources
+C:\Users\ASUS\Documents\project-main\ProyekChess\obj\Debug\ProyekChess.Properties.Resources.resources
+C:\Users\ASUS\Documents\project-main\ProyekChess\obj\Debug\ProyekChess.csproj.GenerateResource.cache
+C:\Users\ASUS\Documents\project-main\ProyekChess\obj\Debug\ProyekChess.exe
+C:\Users\ASUS\Documents\project-main\ProyekChess\obj\Debug\ProyekChess.pdb
