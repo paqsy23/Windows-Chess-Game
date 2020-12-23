@@ -36,3 +36,13 @@ C:\Users\ASUS\Documents\project-main\ProyekChess\obj\Debug\ProyekChess.Propertie
 C:\Users\ASUS\Documents\project-main\ProyekChess\obj\Debug\ProyekChess.csproj.GenerateResource.cache
 C:\Users\ASUS\Documents\project-main\ProyekChess\obj\Debug\ProyekChess.exe
 C:\Users\ASUS\Documents\project-main\ProyekChess\obj\Debug\ProyekChess.pdb
+C:\Users\ASUS\Desktop\AI part 2\ProyekChess\bin\Debug\ProyekChess.exe.config
+C:\Users\ASUS\Desktop\AI part 2\ProyekChess\bin\Debug\ProyekChess.exe
+C:\Users\ASUS\Desktop\AI part 2\ProyekChess\bin\Debug\ProyekChess.pdb
+C:\Users\ASUS\Desktop\AI part 2\ProyekChess\obj\Debug\ProyekChess.csprojAssemblyReference.cache
+C:\Users\ASUS\Desktop\AI part 2\ProyekChess\obj\Debug\ProyekChess.Form1.resources
+C:\Users\ASUS\Desktop\AI part 2\ProyekChess\obj\Debug\ProyekChess.Properties.Resources.resources
+C:\Users\ASUS\Desktop\AI part 2\ProyekChess\obj\Debug\ProyekChess.csproj.GenerateResource.cache
+C:\Users\ASUS\Desktop\AI part 2\ProyekChess\obj\Debug\ProyekChess.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\Desktop\AI part 2\ProyekChess\obj\Debug\ProyekChess.exe
+C:\Users\ASUS\Desktop\AI part 2\ProyekChess\obj\Debug\ProyekChess.pdb

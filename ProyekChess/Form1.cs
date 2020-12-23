@@ -83,9 +83,11 @@ namespace ProyekChess
                         board kosong = new board();
                         boards.boards[tempx, tempy] = kosong;
                         boards.boards[Int32.Parse(indexes[0]), Int32.Parse(indexes[1])] = temps;
+                        refresh();
                     }
+                 
                     turn = computerTurn;
-                    dfs(1, boards, 5);
+                    dfsleo(1, boards, 5);
                     turn = "White";
                 }
                 else
@@ -585,7 +587,7 @@ namespace ProyekChess
                                     {
                                         if(boardtemp.boards[l,k].nama == "King")
                                         {
-                                            boardtemp.val = 1000;
+                                            boardtemp.val = 20;
                                         }
                                         if (boardtemp.boards[l, k].nama == "Queen")
                                         {
@@ -688,14 +690,16 @@ namespace ProyekChess
                     tempVal.Add(dfs(2, possibleMove[i], 3));
                 }
                 int max = -1000;
+                int index = -1;
                 for (int i = 0; i < tempVal.Count; i++)
                 {
                     if(tempVal[i] > max)
                     {
                         max = tempVal[i];
+                        index = i;
                     }
                 }
-                int index = -1;
+                
                 for (int i = 0; i < tempVal.Count; i++)
                 {
                     if (tempVal[i] == max)
@@ -705,6 +709,7 @@ namespace ProyekChess
                 }
                 if(possibleMove.Count > 0)
                 {
+     
                     boards.boards = possibleMove[index].boards;
                 }
                 
@@ -741,11 +746,13 @@ namespace ProyekChess
                             max = tempVal[i];
                         }
                     }
+                    
                     return max;
                 }
             }
             else
             {
+
                 return currentBoard.val;
             }
             return 0;
@@ -761,6 +768,77 @@ namespace ProyekChess
             boards = cekmove[ctrtambah];
             ctrtambah++;
             refresh();
+        }
+        public int dfsleo(int level, realBoard currentBoard, int maxlevel)
+        {
+            List<realBoard> possibleMove = getAllPossibleMove(currentBoard);
+            List<int> tempVal = new List<int>();
+
+            if (level < maxlevel - 1) {
+
+                for (int i = 0; i < possibleMove.Count; i++)
+                {
+                    tempVal.Add(dfsleo(level + 1, possibleMove[i], maxlevel));
+                }
+            }
+
+            List<int> childval = allchildval(currentBoard);
+            int index = -1;
+            int max=-1;
+            if (level ==maxlevel-1)
+            {
+               
+                if (level %2 == 1)
+                {
+                    max = childval.Max();
+                    currentBoard.val= currentBoard.val + max;
+                }
+                else
+                {
+                    max = childval.Min();
+                    currentBoard.val = currentBoard.val - max;
+                }
+
+            }
+            else
+            {
+                
+               
+                if (level % 2 == 1)
+                {
+                    max = tempVal.Max();
+                    currentBoard.val = currentBoard.val + max;
+                }
+                else
+                {
+                    max = tempVal.Min();
+                    currentBoard.val = currentBoard.val - max;
+                }
+                for (int i = 0; i < tempVal.Count; i++)
+                {
+                    if (max == tempVal[i])
+                    {
+                        index = i;
+                    }
+                }
+            }
+             
+            if (level == 1)
+            {
+                MessageBox.Show(max + "");
+                boards.boards = possibleMove[index].boards;
+            }
+            return currentBoard.val;
+        }
+        public List<int> allchildval (realBoard currentBoard)
+        {
+            List<realBoard> possibleMove = getAllPossibleMove(currentBoard);
+            List<int> tempVal = new List<int>();
+            for (int i = 0; i < possibleMove.Count; i++)
+            {
+                tempVal.Add(possibleMove[i].val);
+            }
+            return tempVal;
         }
     }
 }
