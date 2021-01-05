@@ -15,8 +15,9 @@ namespace ProyekChess
         int ctrgerak=0;
         int tempx=-1;
         int tempy=-1;
-        String turn = "White";
-        String computerTurn = "Black";
+        String turn = "Black";
+        String playerTurn = "Black";
+        String computerTurn = "White";
         public Form1()
         {
             InitializeComponent();
@@ -48,11 +49,7 @@ namespace ProyekChess
                     this.Controls.Add(temp);
                 }
             }
-
             refresh();
-
-
-
         }
         private void ClickedButton(object sender, EventArgs e)
         {
@@ -86,7 +83,7 @@ namespace ProyekChess
                     }
                     turn = computerTurn;
                     dfs(1, boards, 1);
-                    turn = "White";
+                    turn = playerTurn;
                 }
                 else
                 {
@@ -692,6 +689,7 @@ namespace ProyekChess
                     MessageBox.Show(tempVal[i].ToString());
                 }
                 int max = tempVal.Max();
+                MessageBox.Show(max.ToString());
                 int index = -1;
                 for (int i = 0; i < tempVal.Count; i++)
                 {
@@ -739,6 +737,14 @@ namespace ProyekChess
             }
             boards = cekmove[ctrtambah];
             ctrtambah++;
+            refresh();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            turn = computerTurn;
+            dfs(1, boards, 1);
+            turn = playerTurn;
             refresh();
         }
     }
