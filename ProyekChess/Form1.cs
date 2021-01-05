@@ -85,7 +85,7 @@ namespace ProyekChess
                         boards.boards[Int32.Parse(indexes[0]), Int32.Parse(indexes[1])] = temps;
                     }
                     turn = computerTurn;
-                    dfs(1, boards, 5);
+                    dfs(1, boards, 1);
                     turn = "White";
                 }
                 else
@@ -585,7 +585,7 @@ namespace ProyekChess
                                     {
                                         if(boardtemp.boards[l,k].nama == "King")
                                         {
-                                            boardtemp.val = 1000;
+                                            boardtemp.val = int.MaxValue;
                                         }
                                         if (boardtemp.boards[l, k].nama == "Queen")
                                         {
@@ -685,16 +685,13 @@ namespace ProyekChess
             {
                 for (int i = 0; i < possibleMove.Count; i++)
                 {
-                    tempVal.Add(dfs(2, possibleMove[i], 3));
+                    tempVal.Add(currentBoard.val + dfs(2, possibleMove[i], 3));
                 }
-                int max = -1000;
-                for (int i = 0; i < tempVal.Count; i++)
+                for (int i = 0; i < possibleMove.Count; i++)
                 {
-                    if(tempVal[i] > max)
-                    {
-                        max = tempVal[i];
-                    }
+                    MessageBox.Show(tempVal[i].ToString());
                 }
+                int max = tempVal.Max();
                 int index = -1;
                 for (int i = 0; i < tempVal.Count; i++)
                 {
@@ -717,15 +714,8 @@ namespace ProyekChess
                     {
                         tempVal.Add(currentBoard.val - dfs(level + 1, possibleMove[i], maxlevel));
                     }
-                    int max = -1000;
-                    for (int i = 0; i < tempVal.Count; i++)
-                    {
-                        if (tempVal[i] > max)
-                        {
-                            max = tempVal[i];
-                        }
-                    }
-                    return max;
+                    int min = tempVal.Min();
+                    return min;
                 }
                 else
                 {
@@ -733,20 +723,9 @@ namespace ProyekChess
                     {
                         tempVal.Add(currentBoard.val + dfs(level + 1, possibleMove[i], maxlevel));
                     }
-                    int max = -1000;
-                    for (int i = 0; i < tempVal.Count; i++)
-                    {
-                        if (tempVal[i] > max)
-                        {
-                            max = tempVal[i];
-                        }
-                    }
+                    int max = tempVal.Max();
                     return max;
                 }
-            }
-            else
-            {
-                return currentBoard.val;
             }
             return 0;
         }
