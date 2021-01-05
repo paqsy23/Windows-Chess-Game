@@ -19,6 +19,7 @@ namespace ProyekChess
                 for (int j = 0; j < 8; j++)
                 {
                     this.boards[i, j] = new board();
+                    this.boards[i, j].bobotbidak = 0;
                 }
             }
             boards[0, 0].nama = "Rook";
@@ -38,7 +39,7 @@ namespace ProyekChess
             boards[2, 0].bobotbidak = 10;
 
             boards[1, 7].nama = "King";
-            boards[1, 7].bobotbidak = 15;
+            boards[1, 7].bobotbidak = 1000;
             boards[2, 7].nama = "Queen";
             boards[2, 7].bobotbidak = 15;
 
@@ -71,7 +72,7 @@ namespace ProyekChess
                 boards[i, 7].warna_team = "White";
             }
         }
-        public realBoard(board[,] boards)
+        public realBoard(board[,] board)
         {
             this.boards = new board[4, 8];
             for (int i = 0; i < 4; i++)
@@ -79,12 +80,31 @@ namespace ProyekChess
                 for (int j = 0; j < 8; j++)
                 {
                     this.boards[i, j] = new board();
-                    this.boards[i, j].nama = boards[i, j].nama;
-                    this.boards[i, j].warna_team = boards[i, j].warna_team;
-                    this.boards[i, j].bobotbidak = boards[i, j].bobotbidak;
+                    this.boards[i, j].nama = board[i, j].nama;
+                    this.boards[i, j].warna_team = board[i, j].warna_team;
+                    this.boards[i, j].bobotbidak = board[i, j].bobotbidak;
                 }
             }
             this.val = 0;
+        }
+        public int countVal(String warna)
+        {
+            int tempval = 0;
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 0; j < 8; j++)
+                {
+                    if(this.boards[i,j].warna_team == warna)
+                    {
+                        tempval += this.boards[i, j].bobotbidak;
+                    }
+                    else
+                    {
+                        tempval -= this.boards[i, j].bobotbidak;
+                    }
+                }
+            }
+            return tempval;
         }
         public realBoard Clone()
         {

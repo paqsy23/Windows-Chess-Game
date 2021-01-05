@@ -15,9 +15,10 @@ namespace ProyekChess
         int ctrgerak=0;
         int tempx=-1;
         int tempy=-1;
-        String turn = "Black";
-        String playerTurn = "Black";
-        String computerTurn = "White";
+        int depth = 3;
+        String turn = "White";
+        String playerTurn = "White";
+        String computerTurn = "Black";
         public Form1()
         {
             InitializeComponent();
@@ -61,11 +62,10 @@ namespace ProyekChess
                 tempy = Int32.Parse(indexes[1]);
                 tempx = Int32.Parse(indexes[0]);
                 ctrgerak = 1;
-
+                button2.Enabled = false;
             }
             else if (ctrgerak == 1 && turn != computerTurn)
             {
-
                 board temps = boards.boards[tempx, tempy];
                 bool legalmove = checkgerakan(tempx, tempy, Int32.Parse(indexes[0]), Int32.Parse(indexes[1]), temps.nama,boards.boards);
                 if (legalmove == true)
@@ -82,7 +82,7 @@ namespace ProyekChess
                         boards.boards[Int32.Parse(indexes[0]), Int32.Parse(indexes[1])] = temps;
                     }
                     turn = computerTurn;
-                    dfs(1, boards, 1);
+                    minimax(boards, depth, true);
                     turn = playerTurn;
                 }
                 else
@@ -557,10 +557,6 @@ namespace ProyekChess
                 }
             }
         }
-        public board[,] Getstateboard()
-        {
-            return boards.boards;
-        }
         public List<realBoard> getAllPossibleMove(realBoard boards){
             List<realBoard> possibleMove = new List<realBoard>();
             for (int i = 0;i < 8;i++){
@@ -580,26 +576,6 @@ namespace ProyekChess
                                     }
                                     else
                                     {
-                                        if(boardtemp.boards[l,k].nama == "King")
-                                        {
-                                            boardtemp.val = int.MaxValue;
-                                        }
-                                        if (boardtemp.boards[l, k].nama == "Queen")
-                                        {
-                                            boardtemp.val = 15;
-                                        }
-                                        if (boardtemp.boards[l, k].nama == "Knight")
-                                        {
-                                            boardtemp.val = 3;
-                                        }
-                                        if (boardtemp.boards[l, k].nama == "Bishop")
-                                        {
-                                            boardtemp.val = 3;
-                                        }
-                                        if (boardtemp.boards[l, k].nama == "Rook")
-                                        {
-                                            boardtemp.val = 5;
-                                        }
                                         board kosong = new board();
                                         boardtemp.boards[j, i] = kosong;
                                         boardtemp.boards[l, k] = firststep; 
@@ -674,58 +650,90 @@ namespace ProyekChess
             }
             return tempboard;
         }
-        public int dfs(int level,realBoard currentBoard,int maxlevel)
+
+        public int max(int a,int b)
+        {
+            if(a > b)
+            {
+                return a;
+            }
+            else
+            {
+                return b;
+            }
+        }
+        public int min(int a, int b)
+        {
+            if (a < b)
+            {
+                return a;
+            }
+            else
+            {
+                return b;
+            }
+        }
+        public int minimax(realBoard currentBoard, int depths,bool maximizing)
         {
             List<realBoard> possibleMove = getAllPossibleMove(currentBoard);
             List<int> tempVal = new List<int>();
-            if (level == 1)
+            if (depths == 0)
             {
-                for (int i = 0; i < possibleMove.Count; i++)
-                {
-                    tempVal.Add(currentBoard.val + dfs(2, possibleMove[i], 3));
-                }
-                for (int i = 0; i < possibleMove.Count; i++)
-                {
-                    MessageBox.Show(tempVal[i].ToString());
-                }
-                int max = tempVal.Max();
-                MessageBox.Show(max.ToString());
+                //for (int i = 0; i < possibleMove.Count; i++)
+                //{
+                //    tempVal.Add(possibleMove[i].val);
+                //}
+                //int max = tempVal.Max();
+                //int index = -1;
+                //for (int i = 0; i < tempVal.Count; i++)
+                //{
+                //    if (tempVal[i] == max)
+                //    {
+                //        index = i;
+                //    }
+                //}
+                //if(possibleMove.Count > 0)
+                //{
+                //    boards.boards = possibleMove[index].boards;
+                //}
+                return currentBoard.countVal(computerTurn);
+            }
+            if(maximizing == true)
+            {
                 int index = -1;
-                for (int i = 0; i < tempVal.Count; i++)
+                int maxEval = -1000000;
+                for (int i = 0; i < possibleMove.Count; i++)
                 {
-                    if (tempVal[i] == max)
+                    int eval = minimax(possibleMove[i], depths - 1, false);
+                    if (eval > maxEval)
                     {
                         index = i;
                     }
+                    maxEval = max(maxEval, eval);
                 }
-                if(possibleMove.Count > 0)
+                if(depths < depth)
                 {
-                    boards.boards = possibleMove[index].boards;
-                }
-                
-            }
-            else if(level <= maxlevel)
-            {
-                if (level % 2 == 0)
-                {
-                    for (int i = 0; i < possibleMove.Count; i++)
-                    {
-                        tempVal.Add(currentBoard.val - dfs(level + 1, possibleMove[i], maxlevel));
-                    }
-                    int min = tempVal.Min();
-                    return min;
+                    return maxEval;
                 }
                 else
                 {
-                    for (int i = 0; i < possibleMove.Count; i++)
+                    if (possibleMove.Count > 0)
                     {
-                        tempVal.Add(currentBoard.val + dfs(level + 1, possibleMove[i], maxlevel));
+                        boards.boards = possibleMove[index].boards;
                     }
-                    int max = tempVal.Max();
-                    return max;
+                    return 0;
                 }
             }
-            return 0;
+            else
+            {
+                int minEval = 1000000;
+                for (int i = 0; i < possibleMove.Count; i++)
+                {
+                    int eval = minimax(possibleMove[i], depths - 1, true);
+                    minEval = min(minEval, eval);
+                }
+                return minEval;
+            }
         }
 
         int ctrtambah = 0;
@@ -742,10 +750,13 @@ namespace ProyekChess
 
         private void button2_Click(object sender, EventArgs e)
         {
+            playerTurn = "Black";
+            computerTurn = "White";
             turn = computerTurn;
-            dfs(1, boards, 1);
+            minimax(boards,depth,true);
             turn = playerTurn;
             refresh();
+            button2.Enabled = false;
         }
     }
 }
